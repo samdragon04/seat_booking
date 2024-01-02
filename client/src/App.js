@@ -9,9 +9,8 @@ import LeavePage from "./Components/LeavePage";
 import DesignDptPage from "./Components/locations/DesignDptPage";
 import KizugawaPage from "./Components/locations/KizugawaPage";
 import TecnicumPage from "./Components/locations/TecnicumPage";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; //Import icon vectors
-import { faMapMarkerAlt,  faSuitcase,  faHome,  faFile,} from "@fortawesome/free-solid-svg-icons"; // Import icon vectors specifics
-/*import socketIOClient from "socket.io-client";*/ // Import the socket.io-client library
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
+import { faMapMarkerAlt,  faSuitcase,  faHome,  faFile,} from "@fortawesome/free-solid-svg-icons"; 
 import EmployeeDropdown from './Components/EmployeeDropdown';
 import RegisterPage from './Components/RegisterPage';
 import AdminLoginPage from './Components/AdminLoginPage';

@@ -10,15 +10,27 @@ function LoginPage({ onLogin }) {
 
   const handleSuccessfulLogin = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:3001/login', { ID: username, password })
-      .then(response => {
-        localStorage.setItem('token', response.data.token);
-        navigate('/home');
-        onLogin();
-      })
-      .catch(error => {
-        alert('Invalid credentials');
-      });
+  
+    // Check if the entered credentials are the temporary ones
+    if (username === 'test' && password === 'test123') {
+      // Simulate a successful login response
+      const fakeResponse = { data: { token: 'fakeToken' } };
+  
+      localStorage.setItem('token', fakeResponse.data.token);
+      navigate('/home');
+      onLogin();
+    } else {
+      // If not the temporary credentials, make a request to the server
+      axios.post('http://localhost:3001/login', { ID: username, password })
+        .then(response => {
+          localStorage.setItem('token', response.data.token);
+          navigate('/home');
+          onLogin();
+        })
+        .catch(error => {
+          alert('Invalid credentials');
+        });
+    }
   };
 
   const handleRegister = (event) => {
