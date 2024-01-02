@@ -57,12 +57,8 @@ const DesignDptPage = () => {
       }))
     )
   );
-  //const [selectedRow, setSelectedRow] = useState(null);
-  //const [selectedCol, setSelectedCol] = useState(null);
 
   const handleSelect = (row, col) => {
-    //setSelectedRow(row);
-    //setSelectedCol(col);
     setGrid((prevGrid) =>
       prevGrid.map((r, i) =>
         r.map((c, j) => (i === row && j === col ? { ...c, selected: true } : c))
@@ -78,13 +74,6 @@ const DesignDptPage = () => {
     );
   };
 
-  //const handleSubmit = () => {
-  //if (selectedRow !== null && selectedCol !== null) {
-  //  const name = prompt('Enter name:');
-  //   handleNameChange(selectedRow, selectedCol, name);
-  // }
-  // };
-
   const handleReset = () => {
     setGrid(
       Array.from({ length: NUM_ROWS }, () =>
@@ -94,8 +83,6 @@ const DesignDptPage = () => {
         }))
       )
     );
-    //setSelectedRow(null);
-    //setSelectedCol(null);
   };
 
   useEffect(() => {
