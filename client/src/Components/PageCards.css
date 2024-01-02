@@ -1,0 +1,41 @@
+.page-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.page-card {
+  width: 200px;
+  height: 800px;
+  margin: 50px;
+  margin-right: 20px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  border: 1px solid black; /* Add a border to the card */
+  border-style: ridge;
+  background-color: ivory;
+ 
+}
+
+.page-card h2 {
+  margin: 0;
+  background-color: beige;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  }
+
+
+.half-card {
+  height: calc(33%);
+  text-align: center;
+  background-color: ivory; /* Set the background color of the card */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.page-card:last-child {
+  margin-right: 40px;
+}

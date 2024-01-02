@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function LoginPage({ onLogin }) {
   const [username, setUsername] = useState('');
@@ -8,17 +10,29 @@ function LoginPage({ onLogin }) {
 
   const handleSuccessfulLogin = (event) => {
     event.preventDefault();
-    if (username === 'test' && password === 'test123') {
-      navigate('/home');
-      onLogin();
-    } else {
-      alert('Invalid credentials');
-    }
+    axios.post('http://localhost:3001/login', { ID: username, password })
+      .then(response => {
+        localStorage.setItem('token', response.data.token);
+        navigate('/home');
+        onLogin();
+      })
+      .catch(error => {
+        alert('Invalid credentials');
+      });
   };
 
-  /*const handleRegister = () => {
-    // Handle register new user logic here
-  };*/
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const newUser = { ID: username, password, LastName: '', FirstName: '', LastName_JP: '', FirstName_JP: '', LastName_Kana: '', FirstName_Kana: '', DepartmentGrp: '', PhoneNumber: '', Email: '' };
+    axios.post('http://localhost:3001/register', newUser)
+      .then(response => {
+        alert('User registered');
+      })
+      .catch(error => {
+        alert('Registration failed');
+      });
+  };
+
 
   const formStyle = {
     display: 'flex',
@@ -28,7 +42,7 @@ function LoginPage({ onLogin }) {
     marginTop: '100px',
     padding: '20px',
     borderRadius: '10px',
-    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.1)'
+    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.4)'
   };
 
   const inputStyle = {
@@ -52,16 +66,23 @@ function LoginPage({ onLogin }) {
     <div>
       <form style={formStyle} onSubmit={handleSuccessfulLogin}>
         <label>
-          Username
+          Username :
           <input style={inputStyle} type="text" value={username} onChange={e => setUsername(e.target.value)} />
         </label>
         <label>
-          Password
+          Password  :
           <input style={inputStyle} type="password" value={password} onChange={e => setPassword(e.target.value)} />
         </label>
         <input style={buttonStyle} type="submit" value="Login" />
       </form>
-      {/*<button style={buttonStyle} onClick={handleRegister}>Register New User</button>*/}
+      <form style={formStyle}>
+      <Link to="/register">
+      <button style={buttonStyle}>Register New User</button>
+      </Link>
+      <Link to="/admin-login">
+      <button style={buttonStyle}>Admin Login</button>
+      </Link>
+      </form>
     </div>
   );
 }
