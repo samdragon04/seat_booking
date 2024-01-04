@@ -4,8 +4,8 @@ import './test.css'; // You can create a CSS file for styling
 const Test = () => {
   const [deskPositions, setDeskPositions] = useState([
     { top: 50, left: 50, rotation: 0 },
-    { top: 150, left: 200, rotation: 45 },
-    { top: 250, left: 350, rotation: -30 },
+    { top: 150, left: 200, rotation: 0 },
+    { top: 250, left: 350, rotation: 0 },
     // Add more desk positions as needed
   ]);
 
@@ -37,7 +37,7 @@ const Test = () => {
             max="180"
             step="1"
             value={position.rotation}
-            onChange={(e) => handleRotationChange(index, parseInt(e.target.value, 10))}
+            onChange={(e) => handleRotationChange(index, parseInt(e.target.value, 10))} style={{ display: 'none' }}
           />
         </div>
       ))}
