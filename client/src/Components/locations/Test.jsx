@@ -3,25 +3,26 @@ import './test.css'; // You can create a CSS file for styling
 
 const Test = () => {
   const [deskPositions, setDeskPositions] = useState([
-    { top: 50, left: 50, rotation: 0 },
-    { top: 150, left: 200, rotation: 0 },
-    { top: 250, left: 350, rotation: 0 },
+    { id: 1, top: 50, left: 50, rotation: 0 },
+    { id: 2, top: 150, left: 200, rotation: 45 },
+    { id: 3, top: 250, left: 350, rotation: -30 },
     // Add more desk positions as needed
   ]);
 
-  const handleRotationChange = (index, newRotation) => {
+  const handleRotationChange = (id, newRotation) => {
     setDeskPositions((prevPositions) => {
-      const newPositions = [...prevPositions];
-      newPositions[index].rotation = newRotation;
+      const newPositions = prevPositions.map((position) =>
+        position.id === id ? { ...position, rotation: newRotation } : position
+      );
       return newPositions;
     });
   };
 
   return (
     <div className="office-layout">
-      {deskPositions.map((position, index) => (
+      {deskPositions.map((position) => (
         <div
-          key={index}
+          key={position.id}
           className="desk"
           style={{
             top: `${position.top}px`,
@@ -30,14 +31,15 @@ const Test = () => {
             position: 'fixed', // Set position to fixed
           }}
         >
-          <span>Desk {index + 1}</span>
+          <span>Desk {position.id}</span>
           <input
             type="range"
             min="-180"
             max="180"
             step="1"
             value={position.rotation}
-            onChange={(e) => handleRotationChange(index, parseInt(e.target.value, 10))} style={{ display: 'none' }}
+            onChange={(e) => handleRotationChange(position.id, parseInt(e.target.value, 10))}
+            style={{ display: 'none' }} // Hide the input
           />
         </div>
       ))}
