@@ -9,15 +9,25 @@ function RegisterPage() {
   const [selectedGroup, setSelectedGroup] = useState('');
   const [newDepartment, setNewDepartment] = useState('');
   const [newGroup, setNewGroup] = useState('');
+  // eslint-disable-next-line
   const [ID, setID] = useState('');
+  // eslint-disable-next-line
   const [LastName, setLastName] = useState('');
+  // eslint-disable-next-line
   const [FirstName, setFirstName] = useState('');
+  // eslint-disable-next-line
   const [LastName_JP, setLastName_JP] = useState('');
+  // eslint-disable-next-line
   const [FirstName_JP, setFirstName_JP] = useState('');
+  // eslint-disable-next-line
   const [LastName_Kana, setLastName_Kana] = useState('');
+  // eslint-disable-next-line
   const [FirstName_Kana, setFirstName_Kana] = useState('');
+  // eslint-disable-next-line
   const [PhoneNumber, setPhoneNumber] = useState('');
+  // eslint-disable-next-line
   const [Email, setEmail] = useState('');
+  // eslint-disable-next-line
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 

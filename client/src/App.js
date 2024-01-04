@@ -9,6 +9,7 @@ import LeavePage from "./Components/LeavePage";
 import DesignDptPage from "./Components/locations/DesignDptPage";
 import KizugawaPage from "./Components/locations/KizugawaPage";
 import TecnicumPage from "./Components/locations/TecnicumPage";
+import TestPage from "./Components/locations/Test";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import { faMapMarkerAlt,  faSuitcase,  faHome,  faFile,} from "@fortawesome/free-solid-svg-icons"; 
 import EmployeeDropdown from './Components/EmployeeDropdown';
@@ -60,6 +61,7 @@ function App() {
                     <Link to="/locations/design_dpt"><span>&#10145;</span> 本社・設計室</Link>
                     <Link to="/locations/tecnicum"><span>&#10145;</span> テクニカム</Link>
                     <Link to="/locations/kizugawa"><span>&#10145;</span> 木津川・設計室</Link>
+                    <Link to="/locations/test"><span>&#10145;</span> test</Link>
                   </div>
                 )}
               </li>
@@ -83,6 +85,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/admin-login" element={<AdminLoginPage />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/locations/test" element={<TestPage/>} />
         </Routes>
       </div>
     </Router>

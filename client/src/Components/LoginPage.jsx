@@ -33,7 +33,8 @@ function LoginPage({ onLogin }) {
     }
   };
 
-  const handleRegister = (event) => {
+  // eslint-disable-next-line
+  /*const handleRegister = (event) => {
     event.preventDefault();
     const newUser = { ID: username, password, LastName: '', FirstName: '', LastName_JP: '', FirstName_JP: '', LastName_Kana: '', FirstName_Kana: '', DepartmentGrp: '', PhoneNumber: '', Email: '' };
     axios.post('http://localhost:3001/register', newUser)
@@ -43,7 +44,7 @@ function LoginPage({ onLogin }) {
       .catch(error => {
         alert('Registration failed');
       });
-  };
+  };*/
 
 
   const formStyle = {

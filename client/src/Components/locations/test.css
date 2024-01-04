@@ -1,0 +1,18 @@
+.office-layout {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  
+  .desk {
+    width: 25px;
+    height: 55px;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #888;
+    position: absolute;
+  }
+  
